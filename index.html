@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Frontend Simple</title>
+</head>
+<body>
+  <button id="btn">Obtener mensaje</button>
+
+  <script>
+    document.getElementById('btn').addEventListener('click', () => {
+      fetch('http://localhost:8080/mensaje')
+        .then(response => response.json())
+        .then(data => {
+          console.log(data.mensaje);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    });
+  </script>
+</body>
+</html>
